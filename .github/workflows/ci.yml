@@ -84,8 +84,11 @@ jobs:
       - name: Upload production build
         uses: actions/upload-artifact@v4
         with:
-          name: dist
-          path: taskly-frontend/dist
+          name: next-build
+          path: |
+            taskly-frontend/.next
+            !taskly-frontend/.next/cache
+          include-hidden-files: true
           retention-days: 1
 
   taskly-e2e-browser:
@@ -133,8 +136,8 @@ jobs:
           load: true
           tags: taskly-frontend:ci
           build-args: |
-            VITE_API_BASE_URL=http://localhost:8080/api/v1
-            VITE_SERVER_BASE_URL=http://localhost:8080
+            NEXT_PUBLIC_API_BASE_URL=http://localhost:8080/api/v1
+            NEXT_PUBLIC_SERVER_BASE_URL=http://localhost:8080
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Run container
@@ -152,7 +155,7 @@ jobs:
       - name: Check pages
         run: |
           for path in / /signup /signin /profile /tasks /create-task /tasks/sample /update-task/sample; do
-            curl -fsS http://localhost:3000$path | grep -q '<div id="root">'
+            curl -fsS http://localhost:3000$path | grep -q '<title>Taskly</title>'
           done
       - name: Show logs on failure
         if: failure()
