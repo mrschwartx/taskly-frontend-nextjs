@@ -1,8 +1,9 @@
 'use client'
 
-import { Box, Heading } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { useParams, useRouter } from 'next/navigation'
 import { getErrorMessage } from '@/shared/api'
+import { PageTitle } from '@/shared/components'
 import { paths } from '@/shared/config/paths'
 import { QueryError } from '../components/QueryError'
 import { TaskForm } from '../components/TaskForm'
@@ -27,9 +28,7 @@ export function UpdateTaskPage() {
 
   return (
     <Box p="3" maxW="4xl" mx="auto">
-      <Heading as="h1" fontSize="3xl" fontWeight="semibold" textAlign="center" my="7">
-        Update Task
-      </Heading>
+      <PageTitle>Update Task</PageTitle>
       <TaskForm
         key={task._id}
         defaultValues={toTaskFormValues(task)}

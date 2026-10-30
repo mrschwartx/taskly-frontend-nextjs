@@ -1,7 +1,6 @@
-import { Flex, Table } from '@chakra-ui/react'
+import { Flex, Link, Table } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { BsArrowUp } from 'react-icons/bs'
-import { Link } from '@chakra-ui/react'
 import { paths } from '@/shared/config/paths'
 import type { Task, TaskOrderBy } from '../types'
 import { PriorityBadge, StatusBadge } from './TaskBadges'
@@ -21,12 +20,12 @@ const columns: { key: TaskOrderBy; label: string }[] = [
 
 export function TasksTable({ tasks, orderBy, onOrderByChange }: TasksTableProps) {
   return (
-    <Table.ScrollArea borderWidth="2px" borderColor="gray.100">
+    <Table.ScrollArea borderWidth="1px" borderColor="border" rounded="lg">
       <Table.Root>
         <Table.Header>
-          <Table.Row bg="gray.100">
+          <Table.Row bg="bg.muted">
             {columns.map((column) => (
-              <Table.ColumnHeader key={column.key} bg="gray.100" aria-sort={orderBy === column.key ? 'ascending' : 'none'}>
+              <Table.ColumnHeader key={column.key} bg="bg.muted" aria-sort={orderBy === column.key ? 'ascending' : 'none'}>
                 <Flex as="button" cursor="pointer" alignItems="center" gap="1" onClick={() => onOrderByChange(column.key)}>
                   {column.label}
                   {orderBy === column.key && <BsArrowUp aria-hidden="true" />}
@@ -46,7 +45,7 @@ export function TasksTable({ tasks, orderBy, onOrderByChange }: TasksTableProps)
             tasks.map((task) => (
               <Table.Row key={task._id}>
                 <Table.Cell>
-                  <Link asChild>
+                  <Link asChild color="brand.fg">
                     <NextLink href={paths.task(task._id)}>{task.name}</NextLink>
                   </Link>
                 </Table.Cell>

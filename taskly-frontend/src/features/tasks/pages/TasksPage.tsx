@@ -1,11 +1,11 @@
 'use client'
 
-import { Box, Button, Flex, Heading, NativeSelect } from '@chakra-ui/react'
+import { Box, Button, Flex, NativeSelect } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
-import { Pagination } from '@/shared/components'
 import { getErrorMessage } from '@/shared/api'
+import { PageTitle, Pagination } from '@/shared/components'
 import { paths } from '@/shared/config/paths'
 import { QueryError } from '../components/QueryError'
 import { TasksSkeleton } from '../components/TasksSkeleton'
@@ -36,9 +36,7 @@ export function TasksPage() {
 
   return (
     <Box p="5" maxW="3xl" mx="auto">
-      <Heading as="h1" fontSize="3xl" fontWeight="semibold" textAlign="center" my="7">
-        MY TASKS
-      </Heading>
+      <PageTitle>MY TASKS</PageTitle>
       <Flex justify="space-between" mb="3">
         <Box w="140px">
           <NativeSelect.Root>
@@ -60,7 +58,7 @@ export function TasksPage() {
             <NativeSelect.Indicator />
           </NativeSelect.Root>
         </Box>
-        <Button asChild colorPalette="green" textTransform="uppercase" fontWeight="semibold">
+        <Button asChild colorPalette="brand" textTransform="uppercase" fontWeight="semibold">
           <NextLink href={paths.createTask}>Create New Task</NextLink>
         </Button>
       </Flex>

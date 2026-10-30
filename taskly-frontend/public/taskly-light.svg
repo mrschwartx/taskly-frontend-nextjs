@@ -1,0 +1,48 @@
+<svg width="960" height="960" viewBox="0 0 960 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+<title>Taskly</title>
+<defs>
+<linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FF7A5C"/>
+<stop offset="0.55" stop-color="#F02356"/>
+<stop offset="1" stop-color="#B5179E"/>
+</linearGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FFF7F8"/>
+<stop offset="1" stop-color="#F1F2F8"/>
+</linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0" stop-color="#F02356" stop-opacity="0.16"/>
+</radialGradient>
+<filter id="blur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="90"/></filter>
+<filter id="sh" x="-30%" y="-30%" width="160%" height="170%" color-interpolation-filters="sRGB">
+<feDropShadow dx="0" dy="28" stdDeviation="30" flood-color="#1B1F3B" flood-opacity="0.18"/>
+</filter>
+<filter id="shs" x="-30%" y="-30%" width="160%" height="170%" color-interpolation-filters="sRGB">
+<feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#F02356" flood-opacity="0.45"/>
+</filter>
+</defs>
+<rect x="270" y="212" width="420" height="440" rx="52" fill="#F6E3EA" stroke="#EBDDE3" stroke-width="2"/>
+<rect x="240" y="258" width="480" height="440" rx="52" fill="#FBEFF3" stroke="#EBDDE3" stroke-width="2"/>
+<g filter="url(#sh)">
+<rect x="200" y="310" width="560" height="450" rx="56" fill="#FFFFFF" stroke="#EBDDE3" stroke-width="2"/>
+</g>
+<circle cx="288" cy="410" r="32" fill="url(#brand)"/>
+<path d="M273 411L284 422L304 399" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="348" y="400" width="300" height="20" rx="10" fill="#E3E4EE"/>
+<circle cx="288" cy="528" r="32" fill="url(#brand)"/>
+<path d="M273 529L284 540L304 517" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="348" y="518" width="220" height="20" rx="10" fill="#E3E4EE"/>
+<circle cx="288" cy="646" r="30" stroke="#C9CADB" stroke-width="7"/>
+<rect x="348" y="627" width="260" height="22" rx="11" fill="#2A2A3C"/>
+<rect x="348" y="664" width="160" height="14" rx="7" fill="#E3E4EE"/>
+<g filter="url(#shs)">
+<circle cx="730" cy="300" r="96" fill="url(#brand)"/>
+</g>
+<circle cx="730" cy="300" r="96" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3"/>
+<path d="M690 302L720 332L772 270" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="150" cy="250" r="14" fill="url(#brand)"/>
+<circle cx="835" cy="560" r="10" fill="url(#brand)" opacity="0.8"/>
+<circle cx="130" cy="700" r="8" fill="#C9CADB"/>
+<path d="M810 700V740M790 720H830" stroke="url(#brand)" stroke-width="8" stroke-linecap="round"/>
+<path d="M170 460V490M155 475H185" stroke="#C9CADB" stroke-width="6" stroke-linecap="round"/>
+</svg>

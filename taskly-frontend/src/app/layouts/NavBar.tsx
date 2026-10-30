@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useSession, useSignOut } from '@/features/auth'
 import { getAvatarUrl } from '@/features/users'
 import { paths } from '@/shared/config/paths'
+import { ThemeToggle } from '@/shared/theme'
 
 export function NavBar() {
   const { user, isReady } = useSession()
@@ -13,14 +14,15 @@ export function NavBar() {
   const { mutate: signOut } = useSignOut()
 
   return (
-    <Box as="nav" bg="red.50">
-      <Flex minWidth="max-content" alignItems="center" p="12px" maxW="7xl" m="0 auto">
+    <Box as="nav" bg="bg.subtle" borderBottomWidth="1px" borderColor="border">
+      <Flex minWidth="max-content" alignItems="center" gap="2" p="12px" maxW="7xl" m="0 auto">
         <Box p="2">
-          <Link asChild fontSize="lg" fontWeight="bold">
+          <Link asChild fontSize="lg" fontWeight="bold" color="brand.fg">
             <NextLink href={paths.home}>Taskly</NextLink>
           </Link>
         </Box>
         <Spacer />
+        <ThemeToggle />
         <Box minH="40px" minW="64px" display="flex" alignItems="center" justifyContent="flex-end">
           {!isReady ? null : user ? (
             <Menu.Root
@@ -48,7 +50,7 @@ export function NavBar() {
               </Portal>
             </Menu.Root>
           ) : (
-            <Link asChild>
+            <Link asChild color="brand.fg">
               <NextLink href={paths.signIn}>Sign In</NextLink>
             </Link>
           )}

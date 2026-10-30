@@ -1,7 +1,8 @@
 'use client'
 
-import { Box, Heading } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
+import { PageTitle } from '@/shared/components'
 import { paths } from '@/shared/config/paths'
 import { TaskForm } from '../components/TaskForm'
 import { useCreateTask } from '../hooks/useCreateTask'
@@ -13,9 +14,7 @@ export function CreateTaskPage() {
 
   return (
     <Box p="3" maxW="4xl" mx="auto">
-      <Heading as="h1" fontSize="3xl" fontWeight="semibold" textAlign="center" my="7">
-        Create a New Task
-      </Heading>
+      <PageTitle>Create a New Task</PageTitle>
       <TaskForm
         isSubmitting={isPending}
         onSubmit={(values) =>

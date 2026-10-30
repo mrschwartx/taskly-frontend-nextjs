@@ -1,9 +1,9 @@
 'use client'
 
-import { Box, Button, Flex, Heading, Link, Stack, Text, useDisclosure } from '@chakra-ui/react'
+import { Box, Button, Flex, Link, Stack, Text, useDisclosure } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { useSession, useSignOut } from '@/features/auth'
-import { DeleteConfirmation } from '@/shared/components'
+import { DeleteConfirmation, PageTitle } from '@/shared/components'
 import { paths } from '@/shared/config/paths'
 import { ProfileForm } from '../components/ProfileForm'
 import { useDeleteAccount } from '../hooks/useDeleteAccount'
@@ -27,34 +27,22 @@ export function ProfilePage() {
         onClose={onClose}
         onConfirm={() => deleteAccount(user._id)}
       />
-      <Heading as="h1" fontSize="3xl" fontWeight="semibold" textAlign="center" my="7">
-        Your Profile
-      </Heading>
+      <PageTitle>Your Profile</PageTitle>
       <ProfileForm user={user} />
       <Stack gap="4" mt="5">
-        <Link
-          asChild
-          p="2"
-          bg="green.500"
-          rounded="lg"
-          textTransform="uppercase"
-          textAlign="center"
-          color="white"
-          fontWeight="semibold"
-          _hover={{ bg: 'green.600', textDecoration: 'none' }}
-        >
+        <Button asChild colorPalette="brand" variant="outline" textTransform="uppercase" fontWeight="semibold">
           <NextLink href={paths.createTask}>Create New Task</NextLink>
-        </Link>
+        </Button>
         <Flex justify="space-between">
-          <Button variant="plain" color="red.600" p="0" h="auto" minW="0" fontWeight="normal" onClick={onOpen}>
+          <Button variant="plain" color="fg.error" p="0" h="auto" minW="0" fontWeight="normal" onClick={onOpen}>
             Delete Account
           </Button>
-          <Button variant="plain" color="red.600" p="0" h="auto" minW="0" fontWeight="normal" onClick={() => signOut()}>
+          <Button variant="plain" color="fg.error" p="0" h="auto" minW="0" fontWeight="normal" onClick={() => signOut()}>
             Sign Out
           </Button>
         </Flex>
         <Text textAlign="center">
-          <Link asChild color="teal" _hover={{ textDecoration: 'none' }}>
+          <Link asChild color="brand.fg" _hover={{ textDecoration: 'none' }}>
             <NextLink href={paths.tasks}>Show Tasks</NextLink>
           </Link>
         </Text>

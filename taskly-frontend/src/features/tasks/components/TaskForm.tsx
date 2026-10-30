@@ -101,7 +101,7 @@ export function TaskForm({ defaultValues = emptyTaskFormValues, isSubmitting, on
             />
             <Field.ErrorText>{errors.due?.message}</Field.ErrorText>
           </Field.Root>
-          <Button type="submit" loading={isSubmitting} colorPalette="teal" textTransform="uppercase">
+          <Button type="submit" loading={isSubmitting} colorPalette="brand" textTransform="uppercase">
             Submit
           </Button>
         </Flex>

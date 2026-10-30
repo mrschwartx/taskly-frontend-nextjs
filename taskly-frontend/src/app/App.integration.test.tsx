@@ -22,7 +22,8 @@ describe('App', () => {
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/make your\s*perfect\s*day/i)
     expect(screen.getByRole('link', { name: 'Sign In' })).toHaveAttribute('href', '/signin')
-    expect(screen.getByRole('img', { name: 'Productive Illustration' })).toBeInTheDocument()
+    const illustrations = screen.getAllByRole('img', { name: 'Taskly illustration' })
+    expect(illustrations.map((image) => image.getAttribute('src'))).toContain('/taskly-light.svg')
   })
 
   it.each(['/profile', '/tasks', '/create-task', '/tasks/abc', '/update-task/abc'])(
